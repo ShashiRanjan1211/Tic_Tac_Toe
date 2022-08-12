@@ -146,4 +146,17 @@ def minimax(state, depth, player):
 
 	return best
 ```
+### Minimax Algorithm Visualisation
+![alt text](https://github.com/Prajwal-P/TicTacToe-with-AI/blob/master/MiniMax-algorithm.png)
+
+### Instructions to run:
+#### Windows
+1. Install a cpp compiler
+2. Open commmand prompt in the folder where program is saved
+3. `g++ ai.cpp` then `./a`
+
+#### Linux
+1. Install a cpp compiler
+2. Open terminal in the folder where program is saved
+3. `g++ ai.cpp` then `./a.out`
 
