@@ -3,45 +3,11 @@ To solve games using AI, we will introduce the concept of a game tree followed b
 
 Each node on the second level, would further have as its children nodes the states that can be reached from it by the opposing player's moves. This is continued, level by level, until reaching states where the game is over. In tic-tac-toe, this means that either one of the players gets a line of three and wins, or the board is full and the game ends in a tie.
 
-### Combinatorics :
-When considering only the state of the board, and after taking into account board symmetries (i.e. rotations and reflections),
-there are only 138 terminal board positions. A combinatorics study of the game shows that when "X" makes the first move every 
-time, the game is won as follows :
-
->* 91 distinct positions are won by (X)<br>
->* 44 distinct positions are won by (O)<br>
->* 3 distinct positions are drawn (often called a "cat's game")
-
-### Pseudocode
+### What is Minimax? :
+Minimax is a artificial intelligence applied in two player games, such as tic-tac-toe, checkers, chess and go. This games are known as zero-sum games, because in a mathematical representation: one player wins (+1) and other player loses (-1) or both of anyone not to win (0).
+### How does it works? :
 ~~~~
-function minimax(node, depth, isMaximizingPlayer, alpha, beta):
-
-    if node is a leaf node :
-        return value of the node
-    
-    if isMaximizingPlayer :
-        bestVal = -INFINITY 
-        for each child node :
-            value = minimax(node, depth+1, false, alpha, beta)
-            bestVal = max( bestVal, value) 
-            alpha = max( alpha, bestVal)
-            if beta <= alpha:
-                break
-        return bestVal
-
-    else :
-        bestVal = +INFINITY 
-        for each child node :
-            value = minimax(node, depth+1, true, alpha, beta)
-            bestVal = min( bestVal, value) 
-            beta = min( beta, bestVal)
-            if beta <= alpha:
-                break
-        return bestVal
-        
-// Calling the function for the first time.
-minimax(0, 0, true, -INFINITY, +INFINITY)
-~~~~
+The algorithm search, recursively, the best move that leads the Max player to win or not lose (draw). It consider the current state of the game and the available moves at that state, then for each valid move it plays (alternating min and max) until it finds a terminal state (win, draw or lose).
 
 ### Minimax Algorithm Visualisation
 ![alt text](https://github.com/Prajwal-P/TicTacToe-with-AI/blob/master/MiniMax-algorithm.png)
